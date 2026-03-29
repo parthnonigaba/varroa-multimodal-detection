@@ -1,28 +1,48 @@
 # A Multimodal Machine Learning System for Non-Invasive Detection of Varroa Destructor Infestations in Honey Bee Colonies
 
-This repository contains deployment code, trained model artifacts, notebooks, and processed sample datasets for a multimodal honey bee colony monitoring system that uses:
+This repository contains deployment code, trained model artifacts, research notebooks, and processed sample datasets for a multimodal honey bee colony monitoring system.
 
-- vision-based varroa detection
-- audio-based colony health analysis
-- environmental sensing using CO2, temperature, and humidity
-- confidence-weighted fusion across modalities
+## System Overview
 
-## Repository structure
+The system integrates three sensing modalities:
 
-- `src/` deployment and monitoring code
-- `models/` trained model artifacts used by the deployment system
-- `config/` example configuration file
-- `notebooks/` research and training notebooks
-- `sample_data/` processed deployment datasets for healthy, mildly infested, and heavily infested colonies
+- Vision for bee and varroa detection
+- Audio for colony health classification
+- Environmental sensing using CO2, temperature, and humidity
 
-## Sample datasets
+These modality outputs are combined through confidence-weighted fusion to generate infestation scores and alerts.
 
-The `sample_data/` folder contains processed field deployment CSV files corresponding to:
+## Repository Structure
 
-- healthy colony, 30 days
-- mildly infested colony, 30 days
-- heavily infested colony, 1 day
+- src/ : deployment and monitoring code
+- models/ : trained model artifacts used by the deployment system
+- config/ : example configuration file
+- notebooks/ : training and experimentation notebooks
+- sample_data/ : processed deployment datasets
+
+## Sample Data
+
+The sample_data/ folder contains three processed field deployment datasets:
+
+- healthy_hive_30day_processed.csv
+- mild_hive_30day_processed.csv
+- infested_hive_1day_processed.csv
+
+These files correspond to healthy, mildly infested, and clearly infested colony conditions.
+
+## Running the System
+
+1. Review and adapt the configuration file in config/config.example.json
+2. Install dependencies with:
+
+   pip install -r requirements.txt
+
+3. Run the deployment system with:
+
+   python src/main_monitor.py
 
 ## Notes
 
-This repository is intended to accompany the paper and public dataset release. Some raw deployment media and large intermediate files are not included.
+- This repository is intended to accompany the paper and public dataset release.
+- Some raw deployment media and other large intermediate files are excluded for size constraints.
+- Included model files are the deployment artifacts, not full training dumps.
