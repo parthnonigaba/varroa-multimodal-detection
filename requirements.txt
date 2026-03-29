@@ -1,0 +1,9 @@
+flask
+numpy
+librosa
+opencv-python
+ultralytics
+tensorflow
+scikit-learn
+smbus2
+adafruit-circuitpython-scd4x

@@ -1,0 +1,72 @@
+{
+  "system": {
+    "name": "Pi Bee Health Monitor",
+    "version": "4.0",
+    "enable_sensors": true,
+    "enable_camera": true,
+    "enable_audio": true,
+    "enable_web": true
+  },
+  "camera": {
+    "device": "/dev/video0",
+    "resolution": [2304, 1296],
+    "framerate": 30,
+    "bee_model_path": "models/bee_detector/bee_detector.pt",
+    "varroa_model_path": "models/varroa_detector/varroa_detector.pt",
+    "bee_confidence": 0.6,
+    "varroa_confidence": 0.7,
+    "roi_min_size": 32,
+    "detection_stride": 4,
+    "burst_stride": 1,
+    "burst_seconds": 10,
+    "clip_seconds": 30,
+    "routine_interval": 600,
+    "detection_fps": 2
+  },
+  "audio": {
+    "device": "hw:2,0",
+    "sample_rate": 48000,
+    "channels": 2,
+    "format": "S32_LE",
+    "recording_duration": 30,
+    "recording_interval": 600,
+    "model_path": "models/audio_classifier/bee_audio_classifier.h5",
+    "weights_path": "models/audio_classifier/bee_audio_weights.pkl",
+    "architecture_path": "models/audio_classifier/bee_audio_architecture.json",
+    "scaler_path": "models/audio_classifier/audio_scaler.pkl",
+    "label_encoder_path": "models/audio_classifier/audio_label_encoder.pkl",
+    "unhealthy_label": "unhealthy",
+    "unhealthy_threshold": 0.7
+  },
+  "sensors": {
+    "sensor_type": "SCD41",
+    "i2c_bus": 1,
+    "scd41_address": "0x62",
+    "reading_interval": 300,
+    "sensor_model_path": "models/sensor_detector/varroa_sensor_model.pkl",
+    "label_encoder": "models/sensor_detector/varroa_label_encoder.pkl",
+    "comment": "SCD41 provides CO2 (400-5000ppm), Temperature, and Humidity. Reads every 5 min."
+  },
+  "storage": {
+    "base_dir": "data",
+    "captures_dir": "data/captures",
+    "varroa_dir": "data/varroa_detections",
+    "audio_dir": "data/audio",
+    "clips_dir": "data/clips",
+    "reports_dir": "data/reports",
+    "database_path": "data/bee_monitor.db",
+    "max_storage_gb": 10,
+    "routine_days": 1,
+    "event_days": 30
+  },
+  "web": {
+    "host": "0.0.0.0",
+    "port": 5000,
+    "debug": false
+  },
+  "logging": {
+    "level": "INFO",
+    "max_size_mb": 10,
+    "backup_count": 3
+  }
+}

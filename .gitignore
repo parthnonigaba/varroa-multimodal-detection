@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.log
+.DS_Store
+
+data/
+logs/
+uploads/
+runtime_results/
+test_results/
+audio_segments/
+camera_segments/
+backups/
