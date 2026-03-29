@@ -1,61 +1,98 @@
-# Multimodal Varroa Mite Detection System
+# A Multimodal Machine Learning System for Non-Invasive Detection of *Varroa destructor* Infestations in Honey Bee Colonies
 
-A real-time, non-invasive system for early detection of Varroa destructor infestations in honey bee colonies using multimodal machine learning.
+## Paper & Data Availability
 
-## Why This Matters
+This repository accompanies the paper:
 
-Varroa mites are a leading cause of honey bee colony collapse. Current detection methods are manual, invasive, and often too late.
+**"A Multimodal Machine Learning System for Non-Invasive Detection of *Varroa destructor* Infestations in Honey Bee Colonies"**
 
-This system enables continuous, automated monitoring to detect infestations before irreversible damage occurs.
+* 📄 Dataset (Zenodo): https://zenodo.org/records/19293834?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImI0MDcxNWUyLTkzZmQtNDQ0MS1hNTExLTRmNGJlZWU4YzVjYSIsImRhdGEiOnt9LCJyYW5kb20iOiJhYTI4ZWM4Zjc1MzFjYzlmYzk4Y2FkZTU5OWJkNjYwYiJ9.KcFeXtaTEhbb4aQCAPjFTkwEKudJo47k9BoQZ_Z6RV-H6dRZs0b6zybVhUFTbsSFwgFlQiCejkjYpdGLGi94wQ
+* 💻 Code (GitHub): https://github.com/parthnonigaba/varroa-multimodal-detection
 
-## System Overview
+The Zenodo dataset contains processed deployment data used for evaluation, while this repository contains the full multimodal inference pipeline and trained deployment models.
 
-The system integrates three sensing modalities:
+---
 
-- Vision: bee and varroa detection using YOLO models  
-- Audio: hive health classification using neural networks  
-- Environmental: CO2, temperature, and humidity-based risk modeling  
+## Overview
 
-Outputs from each modality are combined using a confidence-weighted fusion approach to generate infestation alerts.
+This project presents a real-world, non-invasive system for early detection of *Varroa destructor* infestations in honey bee colonies using multimodal sensing and machine learning.
 
-## Performance
+The system integrates:
 
-- Precision: 99.5 percent  
-- Recall: 92.1 percent  
-- Median early detection lead time: 4.6 days before critical intervention threshold  
+* Vision-based detection of bees and mites
+* Audio-based classification of colony health
+* Environmental sensing using CO₂, temperature, and humidity
+
+These signals are combined using a confidence-weighted fusion framework to generate infestation scores and early warnings.
+
+---
+
+## System Architecture
+
+The system operates in three stages:
+
+1. Vision module detects bees and classifies varroa presence using YOLO-based models
+2. Audio module analyzes hive acoustics using a CNN-LSTM classifier
+3. Environmental module evaluates CO₂, temperature, and humidity using a Random Forest model
+
+Outputs from each modality are combined through confidence-weighted fusion to produce a final infestation score.
+
+---
 
 ## Repository Structure
 
-- src/ : real-time monitoring and deployment system  
-- models/ : trained model artifacts used in deployment  
-- config/ : example configuration file  
-- notebooks/ : training and experimentation pipelines  
-- sample_data/ : processed deployment datasets  
+* `src/` — deployment and monitoring code
+* `models/` — trained model artifacts used in the deployed system
+* `config/` — example configuration file
+* `notebooks/` — training and experimentation notebooks
+* `sample_data/` — processed deployment datasets
+
+---
 
 ## Sample Data
 
-The sample_data/ folder includes:
+The `sample_data/` folder contains processed field deployment datasets:
 
-- healthy_hive_30day_processed.csv  
-- mild_hive_30day_processed.csv  
-- infested_hive_1day_processed.csv  
+* `healthy_hive_30day_processed.csv`
+* `mild_hive_30day_processed.csv`
+* `infested_hive_1day_processed.csv`
 
-These datasets represent real-world colony conditions across different infestation levels.
+These correspond to healthy, mildly infested, and clearly infested colony conditions.
+
+---
 
 ## Running the System
 
-1. Review config/config.example.json  
+1. Review and adapt the configuration file:
+
+   config/config.example.json
+
 2. Install dependencies:
 
-   pip install -r requirements.txt  
+   pip install -r requirements.txt
 
-3. Run:
+3. Run the deployment system:
 
-   python src/main_monitor.py  
+   python src/main_monitor.py
+
+---
+
+## Reproducibility
+
+This repository provides:
+
+* Full multimodal deployment pipeline (vision, audio, environmental sensing)
+* Trained model artifacts used during evaluation
+* Processed datasets aligned with reported experimental results
+
+Due to storage constraints, raw continuous audio/video streams and intermediate training data are not included. The provided datasets and models are sufficient to reproduce system-level performance and fusion behavior.
+
+---
 
 ## Notes
 
-- Designed for Raspberry Pi deployment with sensors and camera  
-- Large raw media files are excluded  
-- Included models are deployment-ready artifacts, not full training outputs  
+* This repository is intended to accompany the paper and public dataset release
+* Included model files are deployment-ready artifacts, not full training checkpoints
+* The system is designed for real-time, field-deployable monitoring on embedded hardware
 
+---
