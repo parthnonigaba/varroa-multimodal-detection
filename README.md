@@ -6,8 +6,8 @@ This repository accompanies the paper:
 
 **"A Multimodal Machine Learning System for Non-Invasive Detection of *Varroa destructor* Infestations in Honey Bee Colonies"**
 
-* 📄 Dataset (Zenodo): https://zenodo.org/records/19293834?token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImI0MDcxNWUyLTkzZmQtNDQ0MS1hNTExLTRmNGJlZWU4YzVjYSIsImRhdGEiOnt9LCJyYW5kb20iOiJhYTI4ZWM4Zjc1MzFjYzlmYzk4Y2FkZTU5OWJkNjYwYiJ9.KcFeXtaTEhbb4aQCAPjFTkwEKudJo47k9BoQZ_Z6RV-H6dRZs0b6zybVhUFTbsSFwgFlQiCejkjYpdGLGi94wQ
-* 💻 Code (GitHub): https://github.com/parthnonigaba/varroa-multimodal-detection
+* Dataset (Zenodo): https://doi.org/10.5281/zenodo.19293834
+* Code (GitHub): https://github.com/parthnonigaba/varroa-multimodal-detection
 
 The Zenodo dataset contains processed deployment data used for evaluation, while this repository contains the full multimodal inference pipeline and trained deployment models.
 
